@@ -1,5 +1,13 @@
 package model.dataccess;
 
-public class MySqlConnection {
+import java.sql.Connection;
+
+public class MySqlConnection implements DataBaseConnection {
+
+	@Override
+	public Connection getDataBaseConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
