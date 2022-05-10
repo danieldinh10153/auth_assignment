@@ -33,8 +33,16 @@ public class LoginDataAccess {
 	public class DemoLoginDataAccess{ //in example, it said to put this outside??
 		public static void main(String[] args)
 		{
-			LoginDataAccess lda = LoginDataAccess.getInstance("jdbc:postgresql://localhost:5432/authentication", "postgres", "123");
-			System.out.println(lda.verifyCredentials());
+//			LoginDataAccess lda = LoginDataAccess.getInstance("jdbc:postgresql://localhost:5432/authentication", "postgres", "123");
+//			System.out.println(lda.verifyCredentials());
+			ConnectionFactory cf = new ConnectionFactory();
+			
+			DataBaseConnection my_sql = cf.getConnection("MYSQL");
+			my_sql.getDataBaseConnection();
+			
+			DataBaseConnection post_gres = cf.getConnection("POSTGRES");
+			post_gres.getDataBaseConnection();
+			
 		}	
 	}
 	//end singleton
