@@ -29,7 +29,7 @@
 	<body>
 	
 	<form action="login" method="post">
-		<table bgcolor="#00ffff" width="500" height="80" align="center">
+		<table bgcolor="#ffffff" width="500" height="80" align="center">
 			    <tr>
 			      <td><c:out value="Username: "></c:out></td>
 				  <td><input type="text" id = "username" name="username"></td>
@@ -39,7 +39,7 @@
 				  <td><input type="text" id = "password" name="password"></td>
 				</tr>
 		</table>
-		<table bgcolor="#00ffff" width="500" height="80" align="center" border="0">		
+		<table bgcolor="#ffffff" width="500" height="80" align="center" border="0">		
 				<tr>
 				  <td></td>
 				  <!--<td align="right"><input type="submit" id="submit" name="submit" value="Submit"></td>-->

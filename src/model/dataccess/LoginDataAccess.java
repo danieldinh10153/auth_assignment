@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.entities.User;
-
+//what does the asks mean and how to import the connectionFactory into it?
 
 public class LoginDataAccess {
 
@@ -31,7 +31,7 @@ public class LoginDataAccess {
 	}
 	
 	public class DemoLoginDataAccess{ //in example, it said to put this outside??
-		public static void main(String[] args)
+		public static void main(String[] args) throws ClassNotFoundException, SQLException
 		{
 //			LoginDataAccess lda = LoginDataAccess.getInstance("jdbc:postgresql://localhost:5432/authentication", "postgres", "123");
 //			System.out.println(lda.verifyCredentials());
@@ -67,8 +67,8 @@ public class LoginDataAccess {
 		
 		final PreparedStatement stmt = conection.getDataBaseConnection().prepareStatement("SELECT * FROM users WHERE username=? and password?");
 		
-		stmt.setString(1, user.getUserName());
-		stmt.setString(2, user.getPassword());
+		stmt.setString(1, User.getInstance().getUserName());
+		stmt.setString(2, User.getInstance().getPassword());
 
 		ResultSet rs = stmt.executeQuery();
 

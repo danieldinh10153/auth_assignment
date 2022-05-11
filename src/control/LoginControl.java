@@ -37,7 +37,7 @@ public class LoginControl extends HttpServlet {
 			
 			if(loginBusiness.verifyCredentials())
 			{
-				request.setAttribute("Username", User.getInstance(1,"dan","123").getUserName()); //need to make methods getInstance and getUserName
+				request.setAttribute("Username", User.getInstance().getUserName()); //need to make methods getInstance and getUserName
 				address = "/view/LoginSuccessView.jsp";
 			}
 			

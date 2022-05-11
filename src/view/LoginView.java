@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.business.LoginBusiness;
 import model.dataccess.LoginDataAccess;
 import model.entities.MessageException;
 import model.entities.User;
@@ -85,24 +87,35 @@ public class LoginView extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent event) {
-		if (event.getSource() == this.buttonSubmit) {
+//		if (event.getSource() == this.buttonSubmit) {
+//			try {
+//				
+//				String userName = txtUserName.getText();
+//				String password = txtPassword.getText();
+//				
+//				if (userName.equals("")) {
+//					throw new MessageException("Username not informed.");
+//				} else if (password.equals("")) {
+//					throw new MessageException("Password not informed.");
+//				} 
+//				
+//				User user = new User(userName, password);
+//				
+//				if (!(new LoginDataAccess().verifyCredentials(user))) {
+//					throw new MessageException("Incorrect credentials.");
+//				} else {
+//					new LoginSuccessView(txtUserName.getText());
+//					dispose();
+//				}
+				
+		if(event.getSource() == this.buttonSubmit) {
 			try {
+				LoginBusiness loginBusiness = LoginBusiness.getInstance();
+				loginBusiness.setUserName(txtUserName.getText());
+				loginBusiness.setUserName(txtPassword.getText());
 				
-				String userName = txtUserName.getText();
-				String password = txtPassword.getText();
-				
-				if (userName.equals("")) {
-					throw new MessageException("Username not informed.");
-				} else if (password.equals("")) {
-					throw new MessageException("Password not informed.");
-				} 
-				
-				User user = new User(userName, password);
-				
-				if (!(new LoginDataAccess().verifyCredentials(user))) {
-					throw new MessageException("Incorrect credentials.");
-				} else {
-					new LoginSuccessView(txtUserName.getText());
+				if(loginBusiness.verifyCredentials()) {
+					new LoginSuccessView(User.getInstance());
 					dispose();
 				}
 				

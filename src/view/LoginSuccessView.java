@@ -8,15 +8,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.entities.User;
+
 public class LoginSuccessView {
 	
 	private JLabel lblUserName;
 	
 	private JPanel panel1;
 	
-	public LoginSuccessView (String userName) {
+	public LoginSuccessView (User user) {
 		JFrame frame = new JFrame();
-		this.lblUserName = new JLabel("Welcome " + userName + "!");
+		this.lblUserName = new JLabel("Welcome " + user.getUserName() + "!");
 		this.panel1 = new JPanel();
 		this.lblUserName.setFont(new Font("Arial",Font.PLAIN,25));
 		this.panel1.setLayout(new FlowLayout(FlowLayout.CENTER));
