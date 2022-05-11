@@ -30,10 +30,11 @@ public class LoginBusiness {
 		else if(password.equals("")) {
 			throw new MessageException("Password empty");
 		}
+		
 		User.getInstance().setUserName(this.userName);
 		User.getInstance().setPassword(this.password);
 		
-		LoginDataAccess lda = LoginDataAccess.getInstance("jdbc:postgresql://localhost:5432/authentication", "postgres", "123");
+		LoginDataAccess lda = LoginDataAccess.getInstance();
 		
 		if(lda.verifyCredentials()) {
 			return true;
@@ -43,13 +44,13 @@ public class LoginBusiness {
 		}
 	
 	}
-	public void setUserName(String username)
+	public void setUserName(String userName)
 	{
-		username = userName;
+		this.userName = userName;
 	}
-	public void setPassword(String pass)
+	public void setPassword(String password)
 	{
-		pass = password;
+		this.password = password;
 	}
 	
 }

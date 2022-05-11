@@ -31,7 +31,7 @@ public class LoginControl extends HttpServlet {
 			
 //			String userName = request.getParameter("username");
 //			String password = request.getParameter("password");
-			LoginBusiness loginBusiness = LoginBusiness.getInstance("dan", "123");
+			LoginBusiness loginBusiness = LoginBusiness.getInstance();
 			loginBusiness.setUserName(request.getParameter("username"));
 			loginBusiness.setPassword(request.getParameter("password"));
 			
